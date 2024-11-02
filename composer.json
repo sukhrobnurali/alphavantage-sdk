@@ -1,5 +1,5 @@
 {
-  "name": "yourname/alpha-vantage-api",
+  "name": "sukhrobnurali/alphavantage-sdk",
   "description": "A lightweight PHP API wrapper for Alpha Vantage.",
   "type": "library",
   "license": "MIT",
