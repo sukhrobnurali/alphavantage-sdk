@@ -6,7 +6,9 @@ namespace AlphaVantage;
 use AlphaVantage\Http\CurlHttpClient;
 use AlphaVantage\Http\HttpClientInterface;
 use AlphaVantage\Endpoints\TimeSeriesEndpoint;
+use AlphaVantage\Endpoints\TechnicalIndicatorEndpoint;
 use AlphaVantage\Endpoints\ForexEndpoint;
+use AlphaVantage\Endpoints\CryptoEndpoint;
 
 /**
  * Class Client
@@ -41,6 +43,15 @@ class Client
         return new TimeSeriesEndpoint($this->apiKey, $this->httpClient, $this->baseUri);
     }
 
+    /**
+     * Get access to Technical Indicator endpoints.
+     *
+     * @return TechnicalIndicatorEndpoint
+     */
+    public function technicalIndicator(): TechnicalIndicatorEndpoint
+    {
+        return new TechnicalIndicatorEndpoint($this->apiKey, $this->httpClient, $this->baseUri);
+    }
 
     /**
      * Get access to Forex endpoints.
@@ -52,4 +63,13 @@ class Client
         return new ForexEndpoint($this->apiKey, $this->httpClient, $this->baseUri);
     }
 
+    /**
+     * Get access to Cryptocurrency endpoints.
+     *
+     * @return CryptoEndpoint
+     */
+    public function crypto(): CryptoEndpoint
+    {
+        return new CryptoEndpoint($this->apiKey, $this->httpClient, $this->baseUri);
+    }
 }
