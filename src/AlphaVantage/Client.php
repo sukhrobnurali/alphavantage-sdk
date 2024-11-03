@@ -5,6 +5,8 @@ namespace AlphaVantage;
 
 use AlphaVantage\Http\CurlHttpClient;
 use AlphaVantage\Http\HttpClientInterface;
+use AlphaVantage\Endpoints\TimeSeriesEndpoint;
+use AlphaVantage\Endpoints\ForexEndpoint;
 
 /**
  * Class Client
@@ -27,6 +29,27 @@ class Client
     {
         $this->apiKey = $apiKey;
         $this->httpClient = $httpClient ?? new CurlHttpClient();
+    }
+
+    /**
+     * Get access to Time Series endpoints.
+     *
+     * @return TimeSeriesEndpoint
+     */
+    public function timeSeries(): TimeSeriesEndpoint
+    {
+        return new TimeSeriesEndpoint($this->apiKey, $this->httpClient, $this->baseUri);
+    }
+
+
+    /**
+     * Get access to Forex endpoints.
+     *
+     * @return ForexEndpoint
+     */
+    public function forex(): ForexEndpoint
+    {
+        return new ForexEndpoint($this->apiKey, $this->httpClient, $this->baseUri);
     }
 
 }
