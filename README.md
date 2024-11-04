@@ -1,6 +1,8 @@
 # AlphaVantage SDK
 
-AlphaVantage SDK is a lightweight PHP wrapper for the Alpha Vantage Stock Market API. It allows you to quickly integrate real-time stock prices, trends, and historical data into your applications with minimal setup. Whether you're building a financial dashboard, tracking market trends, or simply exploring stock data, this SDK makes it easy to access all the Alpha Vantage endpoints in a clean, modern, and dependency-free way.
+AlphaVantage SDK is a lightweight PHP wrapper for the Alpha Vantage Stock Market API. 
+
+It allows you to quickly integrate real-time stock prices, trends, and historical data into your applications with minimal setup. Whether you're building a financial dashboard, tracking market trends, or simply exploring stock data, this SDK makes it easy to access all the Alpha Vantage endpoints in a clean, modern, and dependency-free way.
 
 ## Table of Contents
 
