@@ -1,6 +1,6 @@
-# AlphaVantage PHP API Wrapper
+# AlphaVantage SDK
 
-AlphaVantage PHP API Wrapper is a lightweight, dependency-free PHP package that provides a convenient interface for accessing the full range of [Alpha Vantage](https://www.alphavantage.co/documentation/) API endpoints. Built with modern PHP practices, this package uses object-oriented programming, design patterns, and thorough testing to ensure reliability and ease of integration.
+AlphaVantage SDK is a lightweight PHP wrapper for the Alpha Vantage Stock Market API. It allows you to quickly integrate real-time stock prices, trends, and historical data into your applications with minimal setup. Whether you're building a financial dashboard, tracking market trends, or simply exploring stock data, this SDK makes it easy to access all the Alpha Vantage endpoints in a clean, modern, and dependency-free way.
 
 ## Table of Contents
 
@@ -39,9 +39,14 @@ Install the package via Composer:
 composer require sukhrobnurali/alphavantage-sdk
 ```
 
+
 ## Usage
 
-Below is a quick example to get you started:
+The following examples show how to use the different endpoints provided by the SDK.
+
+### 1. Initialization
+
+Begin by including Composer’s autoloader and initializing the client with your API key:
 
 ```php
 <?php
@@ -51,32 +56,54 @@ use AlphaVantage\Client;
 
 $apiKey = 'YOUR_ALPHA_VANTAGE_API_KEY';
 $client = new Client($apiKey);
+```
 
-// Retrieve intraday time series data for MSFT (5-minute interval)
-$timeSeries = $client->timeSeries();
-$intradayData = $timeSeries->intraday('MSFT', '5min');
+### 2. Time Series Data
+
+**Retrieve intraday stock data for Microsoft (MSFT) at a 5-minute interval:**
+
+```php
+<?php
+$intradayData = $client->timeSeries()->intraday('MSFT', '5min');
 print_r($intradayData);
+```
 
-// Retrieve Simple Moving Average (SMA) technical indicator data
-$technical = $client->technicalIndicator();
-$smaData = $technical->get('SMA', [
+### 3. Technical Indicators
+
+**Fetch Simple Moving Average (SMA) data for Microsoft (MSFT):**
+
+```php
+<?php
+$smaData = $client->technicalIndicator()->get('SMA', [
     'symbol'      => 'MSFT',
     'interval'    => 'daily',
     'time_period' => 10,
     'series_type' => 'close'
 ]);
 print_r($smaData);
+```
 
-// Retrieve real-time forex exchange rate from USD to EUR
-$forex = $client->forex();
-$exchangeRate = $forex->getExchangeRate('USD', 'EUR');
+### 4. Forex Data
+
+**Get the real-time exchange rate from USD to EUR:**
+
+```php
+<?php
+$exchangeRate = $client->forex()->getExchangeRate('USD', 'EUR');
 print_r($exchangeRate);
+```
 
-// Retrieve daily cryptocurrency data for Bitcoin in USD
-$crypto = $client->crypto();
-$cryptoData = $crypto->daily('BTC', 'USD');
+### 5. Cryptocurrency Data
+
+**Retrieve daily cryptocurrency data for Bitcoin (BTC) in USD:**
+
+```php
+<?php
+$cryptoData = $client->crypto()->daily('BTC', 'USD');
 print_r($cryptoData);
 ```
+
+
 
 ## API Documentation
 
